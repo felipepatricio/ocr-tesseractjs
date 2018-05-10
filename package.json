@@ -1,0 +1,33 @@
+{
+  "name": "tesseract",
+  "version": "1.0.0",
+  "description": "a simple system for studying using the library tesseractjs",
+  "main": "index.js",
+  "dependencies": {
+    "tesseract.js": "^1.0.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "bootstrap": "^4.1.1",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipepatricio/ocr-tesseractjs.git"
+  },
+  "keywords": [
+    "tesseract",
+    "ocr"
+  ],
+  "author": "Felipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipepatricio/ocr-tesseractjs/issues"
+  },
+  "homepage": "https://github.com/felipepatricio/ocr-tesseractjs#readme"
+}

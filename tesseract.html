@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Felipe Patricio e Matheus Santos - OCR</title>
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- <script src="https://cdn.rawgit.com/naptha/tesseract.js/0.2.0/dist/tesseract.js"> -->
+    <script src="src/tesseract.js">
+    </script>
+</head>
+<body>
+        <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                <strong> Recognizing</strong> <em> Version: 1.0 </em>
+                </a>
+            </nav>
+            <div class="row">
+                <div class="container">
+                    <div class="align-center">
+                        <img src="assets/img/logo-ateneu.jpg" alt="">
+                    </div>
+                    <h1> Leitor OCR  <span> Utilizando a lib Tesserac.js </span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="url" placeholder="Image URL" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="button" class="btn btn-primary btn-block" id="go_button" value="Run" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="jumbotron">
+                        <div id="ocr_result"> </div>
+                        <div id="ocr_status"> </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="container">
+                    <strong>Equipe: </strong> <em>Felipe Alves Patricio e  Matheus Santos</em> 
+                </div>
+            </div>
+
+    <script>
+        
+        function runOCR(url) {
+            Tesseract.recognize(url, {
+                lang: 'por'
+            })
+         .then(function(result) {
+            document.getElementById("ocr_result")
+                    .innerText = result.text;
+         }).progress(function(result) {
+            document.getElementById("ocr_status")
+                    .innerText = result["status"] + " (" +
+                        (result["progress"] * 100) + "%)";
+            });
+        }
+        document.getElementById("go_button")
+        .addEventListener("click", function(e) {
+            var url = document.getElementById("url").value;
+            runOCR(url);
+        });
+    </script>
+</body>
+</html>
